@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starfall Defense — Space Battle Royale 2D</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-shell">
+        <header class="game-header">
+            <h1>Starfall <span>Defense</span></h1>
+            <p>WASD / Flechas para moverte &middot; Ratón para apuntar &middot; Clic o ESPACIO para disparar &middot; P pausa</p>
+        </header>
+
+        <div class="canvas-frame">
+            <canvas id="game-canvas" width="960" height="600"></canvas>
+        </div>
+
+        <footer class="game-footer">
+            <span>Starfall Defense 2D</span>
+            <span>Nave con Aditamentos &middot; Superpastillas &middot; JS puro</span>
+        </footer>
+    </div>
+
+    <!-- ===== Capa de utilidades ===== -->
+    <script src="js/utils/Vector.js"></script>
+
+    <!-- ===== Capa core (clases base) ===== -->
+    <script src="js/core/Entity.js"></script>
+    <script src="js/core/Sprite.js"></script>
+
+    <!-- ===== Capa engine (motor) ===== -->
+    <script src="js/engine/Input.js"></script>
+    <script src="js/engine/Engine.js"></script>
+
+    <!-- ===== Capa de entidades ===== -->
+    <script src="js/entities/Projectile.js"></script>
+    <script src="js/entities/Enemy.js"></script>
+    <script src="js/entities/SuperPill.js"></script>
+    <script src="js/entities/Player.js"></script>
+
+    <!-- ===== Punto de entrada ===== -->
+    <script src="js/main.js"></script>
+</body>
+</html>

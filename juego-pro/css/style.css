@@ -1,0 +1,138 @@
+/* ============================================================
+   style.css — Presentación del juego (no contiene lógica)
+   ============================================================ */
+
+:root {
+    --bg-1: #06070f;
+    --bg-2: #10163a;
+    --accent: #7aa2ff;
+    --accent-2: #b98bff;
+    --text: #e8edff;
+    --text-dim: #8b97c4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(1100px 650px at 50% -10%, rgba(108, 140, 255, 0.18), transparent 62%),
+        radial-gradient(900px 600px at 92% 112%, rgba(180, 107, 255, 0.16), transparent 60%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+}
+
+/* Contenedor principal: se ajusta al alto de la ventana */
+.game-shell {
+    width: min(100%, 1000px, calc((100vh - 190px) * 1.6));
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    animation: fade-in 0.6s ease both;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------- Cabecera ---------------- */
+.game-header {
+    text-align: center;
+    user-select: none;
+}
+
+.game-header h1 {
+    font-size: clamp(19px, 2.4vw, 27px);
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #7aa2ff, #b98bff 55%, #63e6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 18px rgba(120, 150, 255, 0.35));
+}
+
+.game-header h1 span {
+    -webkit-text-fill-color: #ffd166;
+    color: #ffd166;
+    filter: drop-shadow(0 0 16px rgba(255, 209, 102, 0.45));
+}
+
+.game-header p {
+    margin-top: 7px;
+    font-size: 12.5px;
+    letter-spacing: 0.055em;
+    color: var(--text-dim);
+}
+
+/* ---------------- Marco del canvas ---------------- */
+.canvas-frame {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #05060d;
+    box-shadow:
+        0 0 0 1px rgba(122, 162, 255, 0.28),
+        0 26px 70px rgba(0, 0, 0, 0.7),
+        0 0 100px rgba(108, 140, 255, 0.14);
+}
+
+/* Brillo sutil sobre el lienzo */
+.canvas-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.055),
+        transparent 18%,
+        transparent 82%,
+        rgba(0, 0, 0, 0.26)
+    );
+    mix-blend-mode: screen;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: none;
+    touch-action: none;
+}
+
+/* ---------------- Pie ---------------- */
+.game-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 4px;
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #5f6a92;
+    user-select: none;
+}
+
+@media (max-width: 640px) {
+    body { padding: 10px; }
+    .game-footer { font-size: 9.5px; }
+    .game-header p { font-size: 10.5px; }
+}
